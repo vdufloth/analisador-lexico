@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analisador Léxico</title>
+  <!-- <link rel="stylesheet" href="css/index.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1 class="display-4">Analisador Léxico</h1>
+    <div class="row">
+      <div class="col-sm-5">
+        <form class="form-group">
+          <lable for="tokens_input">Adicionar Token</lable>
+          <input id="tokens_input" class="form-control" />
+          <small class="form-text text-muted">Pressione enter para adicionar</small>
+          <lable for="palavra_input">Verificar token</lable>
+          <input id="palavra_input" class="form-control" />
+          <small class="form-text text-muted">Pressione espaço para concluir a verificação</small>
+        </form>
+      </div>
+      <div class="col-sm-7">
+        <div>Tokens:</div>
+        <div id="tokens_div"></div>
+      </div>
+    </div>
+    <div id="automato_div"></div>
+  </div>
+  </div>
+</body>
+<script src="js/index.js"></script>
+
+</html>
