@@ -1,0 +1,12 @@
+.correto {
+    background-color: lightgreen !important;
+}
+
+.errado {
+    background-color: lightsalmon !important;
+}
+
+.table {
+    table-layout: fixed;
+    font-size: 90%;
+}
