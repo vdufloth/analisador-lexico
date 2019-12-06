@@ -87,7 +87,7 @@ function verificar_on_input(valor) {
             celulaAtual = "";
             erro = false;
             idx = 0;
-            ultimosEstados = new Array;
+            ultimosEstados = [];
         }
     }
     back = false;
@@ -188,8 +188,16 @@ function add_token_button(token) {
     buttonItem.innerHTML = token;
     buttonItem.addEventListener("click", function () {
         tokens.splice(tokens.indexOf(token), 1);
+        
         document.getElementById("tokens_input").value = "";
         document.getElementById("verificar_input").value = "";
+        
+        zeraEstados();
+        celulaAtual = "";
+        erro = false;
+        idx = 0;
+        ultimosEstados = [];
+        
         criarEstados();
     });
 
