@@ -58,9 +58,9 @@ function verificar_on_input(valor) {
                 ultimosEstados.push("error");
             }
         } else if (index == -65) {
-            if (celulaAtual.trim().length > 0) {
-                document.getElementById(celulaAtual).classList.remove("table-secondary");
-            }
+            // if (celulaAtual.trim().length > 0) {
+            //     document.getElementById(celulaAtual).classList.remove("table-secondary");
+            // }
 
             if (!estado["&"]) {
                 document.getElementById("verificar_input").className = "form-control errado";
@@ -68,7 +68,7 @@ function verificar_on_input(valor) {
                 ultimosEstados.push("error");
             } else {
                 ultimosEstados.push(idx + ";" + celulaAtual);
-
+                document.getElementById("verificar_input").className = "form-control valido";
                 document.getElementById("tr" + idx).className = "";
                 idx = 0;
                 celulaAtual = "";
@@ -79,7 +79,7 @@ function verificar_on_input(valor) {
             ultimosEstados.push("error");
         }
     } else {
-        if (valor.trim().length == 0 || estados.length == 0) {
+        if (valor.trim().length == 0 || estados.length == 0) { // tentar passar isso para o onchange do botao
             zeraEstados();
             document.getElementById("verificar_input").className = "form-control";
 
@@ -141,26 +141,26 @@ function criarEstados() {
 
     if (tokens.length > 0) {
         estados[0] = {};
-        console.log(tokens)
-        tokens.forEach( function(token) {
-            console.log(tokens, token)
+        tokens.forEach(function (token) {
             add_token_button(token);
-            
+
             let valor_estado = new Array(token.length);
             let i = 0;
             for (i in token) {
                 let letra = token[i].toLowerCase();
                 valor_estado[i] = {};
                 valor_estado[i][letra] = parseInt(i) + 1;
-                if (i == token.length - 1)
+
+                if (i == token.length - 1) {
                     valor_estado[parseInt(i) + 1] = { "&": 0 };
+                }
             }
-    
+
             i = 0;
             let idxChar = 0;
             for (i in valor_estado) {
                 let key = Object.keys(valor_estado[i])[0];
-                let ultimoValor = i == (valor_estado.length - 1);
+                let ultimoValor = (i == (valor_estado.length - 1));
                 if (estados[idxChar] && estados[idxChar].hasOwnProperty(key)) {
                     idxChar = estados[idxChar][key];
                 } else {
@@ -204,9 +204,9 @@ function printAutomato() {
     var tableRow = header.insertRow(-1);
     for (i = 0; i < 27; i++) {
         let th = document.createElement("th");
-        if (i !== 0){
+        if (i !== 0) {
             th.innerHTML = String.fromCharCode(96 + i);
-        }        
+        }
         tableRow.appendChild(th);
     }
 

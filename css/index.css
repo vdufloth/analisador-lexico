@@ -1,4 +1,8 @@
 .correto {
+    background-color: lightskyblue !important;
+}
+
+.valido {
     background-color: lightgreen !important;
 }
 
