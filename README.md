@@ -1,3 +1,1 @@
-# Analisador Léxico
-
-Hosted on https://vdufloth.github.io/analisador-lexico/
+## Hosted on https://vdufloth.github.io/analisador-lexico/
