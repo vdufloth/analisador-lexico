@@ -64,16 +64,16 @@ function verificar_on_input(valor) {
                 ultimosEstados.push("error");
             }
         } else if (index == -65) {
-            if (!estado["&"]) {
-                document.getElementById("verificar_input").className = "form-control errado";
-                erro = true;
-                ultimosEstados.push("error");
-            } else {
+            if (estado["&"] && !erro) {
                 ultimosEstados.push(idx + ";" + celulaAtual);
                 document.getElementById("verificar_input").className = "form-control valido";
                 document.getElementById("tr" + idx).className = "";
                 idx = 0;
                 celulaAtual = "";
+            } else {
+                document.getElementById("verificar_input").className = "form-control errado";
+                erro = true;
+                ultimosEstados.push("error");
             }
         } else {
             erro = true;
