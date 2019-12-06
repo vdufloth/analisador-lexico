@@ -26,6 +26,12 @@ function tokens_on_change(valor) {
 
     document.getElementById("tokens_input").value = "";
     document.getElementById("verificar_input").value = "";
+    zeraEstados();
+    document.getElementById("verificar_input").className = "form-control";
+    celulaAtual = "";
+    erro = false;
+    idx = 0;
+    ultimosEstados = [];
 }
 
 function verificar_on_input(valor) {
@@ -58,10 +64,6 @@ function verificar_on_input(valor) {
                 ultimosEstados.push("error");
             }
         } else if (index == -65) {
-            // if (celulaAtual.trim().length > 0) {
-            //     document.getElementById(celulaAtual).classList.remove("table-secondary");
-            // }
-
             if (!estado["&"]) {
                 document.getElementById("verificar_input").className = "form-control errado";
                 erro = true;
@@ -82,7 +84,6 @@ function verificar_on_input(valor) {
         if (valor.trim().length == 0 || estados.length == 0) { // tentar passar isso para o onchange do botao
             zeraEstados();
             document.getElementById("verificar_input").className = "form-control";
-
             celulaAtual = "";
             erro = false;
             idx = 0;
